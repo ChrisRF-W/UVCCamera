@@ -24,19 +24,19 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion versionCompiler
-   	buildToolsVersion versionBuildTool
+	compileSdkVersion versionCompileSdk
+	buildToolsVersion versionBuildTools
 
    	compileOptions {
-   		sourceCompatibility javaSourceCompatibility
-   		targetCompatibility javaTargetCompatibility
+		sourceCompatibility compatibilityJavaSource
+		targetCompatibility compatibilityJavaTarget
    	}
 
     defaultConfig {
-        minSdkVersion 18
-        targetSdkVersion versionTarget
-
+		minSdkVersion versionMinSdk
+		targetSdkVersion versionTargetSdk
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -48,10 +48,10 @@ android {
 dependencies {
 	api fileTree(dir: 'libs', include: ['*.jar'])
 
-	implementation "com.android.support:support-v4:${supportLibVersion}"
-	implementation "com.android.support:support-annotations:${supportLibVersion}"
+	implementation "com.android.support:support-v4:${versionSupportLib}"
+	implementation "com.android.support:support-annotations:${versionSupportLib}"
 
-	implementation("com.serenegiant:common:${commonLibVersion}") {
+	implementation("com.serenegiant:common:${versionSerenegiantCommonLib}") {
    		exclude module: 'support-v4'
    	}
 	implementation project(':libuvccamera')

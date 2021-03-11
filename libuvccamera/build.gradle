@@ -25,17 +25,17 @@ apply plugin: 'com.android.library'
 import org.apache.tools.ant.taskdefs.condition.Os
 
 android {
-	compileSdkVersion versionCompiler
-	buildToolsVersion versionBuildTool
+	compileSdkVersion versionCompileSdk
+	buildToolsVersion versionBuildTools
 
 	compileOptions {
-		sourceCompatibility javaSourceCompatibility
-		targetCompatibility javaTargetCompatibility
+		sourceCompatibility compatibilityJavaSource
+		targetCompatibility compatibilityJavaTarget
 	}
 
     defaultConfig {
-        minSdkVersion 14
-		targetSdkVersion versionTarget
+        minSdkVersion versionMinSdk
+		targetSdkVersion versionTargetSdk
     }
 
     buildTypes {
@@ -86,10 +86,10 @@ clean.dependsOn 'ndkClean'
 dependencies {
     implementation fileTree(dir: new File(buildDir, 'libs'), include: '*.jar')
 
-	implementation "com.android.support:support-v4:${supportLibVersion}"
-	implementation "com.android.support:support-annotations:${supportLibVersion}"
+	implementation "com.android.support:support-v4:${versionSupportLib}"
+	implementation "com.android.support:support-annotations:${versionSupportLib}"
 
-	implementation("com.serenegiant:common:${commonLibVersion}") {
+	implementation("com.serenegiant:common:${versionSerenegiantCommonLib}") {
 		exclude module: 'support-v4'
 	}
 }
