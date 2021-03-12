@@ -53,12 +53,18 @@ android {
 dependencies {
 	api fileTree(dir: 'libs', include: ['*.jar'])
 
-	implementation "com.android.support:support-v4:${versionSupportLib}"
-	implementation "com.android.support:support-annotations:${versionSupportLib}"
+//	implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+//	implementation 'androidx.annotation:annotation:1.0.0'
+//
+//	implementation("com.serenegiant:common:${versionSerenegiantCommonLib}") {
+//		exclude module: 'support-v4'
+//	}
+//	implementation project(':libuvccamera')
+//	implementation project(':usbCameraCommon')
 
-	implementation("com.serenegiant:common:${versionSerenegiantCommonLib}") {
-		exclude module: 'support-v4'
-	}
+	implementation "androidx.appcompat:appcompat:${versionAndroidX}"
+
+	implementation "com.serenegiant:common:${versionSerenegiantCommonLib}"
 	implementation project(':libuvccamera')
 	implementation project(':usbCameraCommon')
 }
